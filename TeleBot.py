@@ -60,11 +60,15 @@ def main_loop(message):
         for line in fetched:
             if line[2] == 'ServerError' and not ids.__contains__(line[0]):
                 bot.send_message(id, 'ServerError: id {id}'.format(id=line[0]))
+                if len(ids) >= 50:
+                    ids = ids[1:]
                 ids.append(line[0])
             if line[2] == 'Pending' and not ids.__contains__(line[0]) \
                     and (datetime.datetime.now() - line[1]).total_seconds() > 600:
                 pendings.append('Pending: id {id} {time}'
                                 .format(id=line[0], time=line[1].__str__()))
+                if len(ids) >= 50:
+                    ids = ids[1:]
                 ids.append(line[0])
         if len(pendings) != 0:
             bot.send_message(id, '\n'.join(pendings))
