@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=D:\YandexDisk\Для учебы\Проганье\telebot\venv"
+set "VIRTUAL_ENV=D:\YandexDisk\Для учебы\Проганье\Курсач\telebot\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
